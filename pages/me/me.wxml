@@ -1,0 +1,15 @@
+<button class='layout-user' open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+  <image src='{{userInfo?userInfo.avatarUrl:"../images/ic-login.png"}}'></image>
+  <text>{{userInfo?userInfo.nickName:'登录'}}</text>
+</button>
+<view class="cell">
+  <button class="contact-service" open-type='contact'></button>
+  <view class="cell-text">联系客服</view>
+</view>
+<view class="cell">
+  <button class="contact-service" open-type='share'></button>
+  <view class="cell-text">分享给朋友</view>
+</view>
+<view class="cell">
+  <view class="cell-text" bindtap='commonClick' data-path='../about/about'>关于</view>
+</view>

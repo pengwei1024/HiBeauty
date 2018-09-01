@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/me/me",
+    "pages/author/author",
+    "pages/about/about"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff6600",
+    "navigationBarTitleText": "唯美小姐姐",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "selectedColor": "#ff6600",
+    "color": "#a9a9a9",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "小姐姐",
+        "iconPath": "pages/images/ic-love.png",
+        "selectedIconPath": "pages/images/ic-love-selected.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "设置",
+        "iconPath": "pages/images/ic-user.png",
+        "selectedIconPath": "pages/images/ic-user-selected.png"
+      }
+    ]
+  }
+}

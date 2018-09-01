@@ -1,0 +1,23 @@
+<!--pages/index/index.wxml-->
+<view class='container'>
+  <view class='image-item' wx:for="{{dataList}}" data-index='{{index}}' wx:key="{{index}}" data-item='{{index}}'>
+    <view class='header'>
+      <image mode='widthFix' style='width:90rpx;height:90rpx;' src='{{item.head}}' bindtap='headClick' data-uid='{{item.uid}}'></image>
+      <text>{{item.name}}</text>
+    </view>
+    <text class='title'>{{item.title}}</text>
+    <view class='image-list'>
+      <image style='width:{{item.images.length ==1?screenWidth:imageWidth}}px;height:{{item.images.length ==1?screenWidth:imageWidth}}px;' mode='aspectFill' wx:for="{{item.thumbnail}}" wx:for-item="images" wx:key="images" wx:for-index="cellindex" data-parent='{{index}}'
+        data-index='{{cellindex}}' src='{{images.url}}' bindtap='imageClick'
+        class='{{images.css}}'></image>
+    </view>
+    <view class='bottom-layout'>
+      <text class='time'>{{item.create_time}}</text>
+      <view class='like-layout' data-id='{{item.id}}' data-index='{{index}}' bindtap='addLikeClick'>
+        <image mode='widthFix' src='{{item.liked?"../images/ic-heart-fill.png":"../images/ic-heart.png"}}'></image>
+        <text>{{item.like_num}}</text>
+      </view>
+    </view>
+  </view>
+  <image class='empty-view' wx:if="{{dataList.length == 0}}" src='../images/ic_empty.png' mode='widthFix'></image>
+</view>

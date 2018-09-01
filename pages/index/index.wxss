@@ -1,0 +1,108 @@
+/* pages/index/index.wxss */
+page {
+  background: #f8f9fa;
+}
+.container {
+  position: relative;
+}
+.image-item {
+  position: relative;
+  margin-bottom: 35rpx;
+  background: #fff;
+  padding-top: 20rpx;
+}
+.image-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: 0 0;
+  pointer-events: none;
+  box-sizing: border-box;
+  border: 0 solid #e5e5e5;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+.header image {
+  width: 90rpx;
+  border-radius: 90rpx;
+  margin-left: 20rpx;
+  background: #eee;
+}
+.header text {
+  margin-left: 20rpx;
+  color: #212529;
+  font-size: 10pt;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.title {
+  display: block;
+  color: #474646;
+  margin: 15rpx;
+}
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.image-list image {
+  width: 33%;
+  background: #eee;
+  margin-bottom: 1px;
+  position: relative;
+}
+.image-list image:nth-child(3n+2) {
+  margin: 0 1px;
+}
+.bottom-layout {
+  padding: 22rpx 15rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.bottom-layout .time {
+  font-size: 9pt;
+  color: #777f87;
+}
+.like-layout {
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  padding-right: 40rpx;
+  padding-left: 20rpx;
+}
+.like-layout image {
+  width: 35rpx;
+}
+.like-layout text {
+  font-size: 9pt;
+  color: #777f87;
+  margin-left: 10rpx;
+  font-weight: bolder;
+}
+.image-list .gif::after {
+  content: 'GIF';
+  background: #000;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 10px;
+  opacity: 0.31;
+  color: #fff;
+  padding: 5rpx;
+}
+
+.empty-view {
+  display: block;
+  width: 400rpx;
+  margin: 30% auto;
+  background: #f8f9fa;
+}

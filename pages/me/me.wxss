@@ -1,0 +1,58 @@
+/* pages/index/personal.wxss */
+
+button {
+  background: transparent;
+  border: 0;
+}
+
+button::after {
+  background: transparent;
+  border: 0;
+}
+
+.layout-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 220rpx;
+}
+
+.layout-user image {
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+}
+
+.layout-user text {
+  color: #6c6c6c;
+}
+.cell {
+  position: relative;
+  padding: 30rpx;
+  margin-top: 15rpx;
+}
+.cell::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: 0 0;
+  pointer-events: none;
+  box-sizing: border-box;
+  border: 0 solid #c5c5c5;
+  border-top-width: 0px;
+  border-bottom-width: 1px;
+}
+
+.contact-service {
+  position: absolute;
+  top:0;
+  left:0;
+  background: transparent;
+  width:100%;
+  height:100%;
+}

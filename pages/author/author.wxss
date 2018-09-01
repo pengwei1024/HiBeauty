@@ -1,0 +1,2 @@
+/* pages/author/author.wxss */
+@import '../index/index.wxss'; 
