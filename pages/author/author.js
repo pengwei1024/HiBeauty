@@ -36,6 +36,7 @@ Page({
             css: item.indexOf('.gif') > 0 ? 'gif' : ''
           };
         })
+        item.share = item.thumbnail[0].url;
         return item
       },
       setData: this.setData.bind(this)
@@ -91,7 +92,19 @@ Page({
       current: data[index]
     })
   },
-  onShareAppMessage: function (res) { },
+  onShareAppMessage: function (res) { 
+    if (res.from == 'button') {
+      var target = res.target.dataset;
+      if (target && target.id) {
+        var title = target.title || '唯美小姐姐';
+        return {
+          title: title,
+          path: `/pages/index/index?start=${target.id}`,
+          imageUrl: target.share
+        }
+      }
+    }
+  },
   addLikeClick: e => {
     const id = e.currentTarget.dataset.id;
     const index = e.currentTarget.dataset.index;

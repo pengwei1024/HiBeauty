@@ -71,13 +71,33 @@ page {
   font-size: 9pt;
   color: #777f87;
 }
-.like-layout {
+.bottom-right-layout {
   display: inline-flex;
   align-items: center;
   position: absolute;
   right: 0;
   padding-right: 40rpx;
   padding-left: 20rpx;
+}
+.btn-share {
+  display: inline-block;
+  width: 50rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-right: 50rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  background: transparent;
+}
+.btn-share::after {
+  border: 0;
+}
+.btn-share image {
+  width: 35rpx;
+}
+.like-layout {
+  display: inline-flex;
+  align-items: center;
 }
 .like-layout image {
   width: 35rpx;

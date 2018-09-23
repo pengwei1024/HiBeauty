@@ -6,6 +6,7 @@ const app = getApp();
 // 最大显示的记录数
 const maxCount = 40;
 var renderUtil;
+var start;
 Page({
 
   /**
@@ -23,6 +24,8 @@ Page({
    */
   onLoad: function (options) {
     that = this;
+    start = options.start || 0;
+    util.log('from share: id=' + start)
     renderUtil = new SafeRenderUtil({
       arrName: 'dataList',
       formatItem: (item) => {
@@ -33,6 +36,7 @@ Page({
             css: item.indexOf('.gif') > 0 ? 'gif' : ''
           };
         })
+        item.share = item.thumbnail[0].url;
         return item
       },
       setData: this.setData.bind(this)
@@ -41,16 +45,18 @@ Page({
       screenWidth: wx.getSystemInfoSync().windowWidth,
       imageWidth: (wx.getSystemInfoSync().windowWidth - 2) / 3
     })
+    that.data.page = 0;
     if (app.globalData.uid) {
-      that.onPullDownRefresh();
+      that.request(true);
     } else {
       app.globalData.loginListener = (e) => {
         util.log('login success', e)
-        that.onPullDownRefresh();
+        that.request(true);
       }
     }
   },
   onPullDownRefresh: function () {
+    start = 0;
     that.data.page = 0;
     that.request(true);
   },
@@ -61,7 +67,8 @@ Page({
   request: (upward) => {
     util.requestApi(`/api/getGallery/${that.data.page}`, {
       uid: app.globalData.uid,
-      token: util.getToken(app.globalData.uid)
+      token: util.getToken(app.globalData.uid),
+      start: start
     }).then((data) => {
       if (!Array.isArray(data.data)) {
         return;
@@ -88,7 +95,19 @@ Page({
       current: data[index]
     })
   },
-  onShareAppMessage: function (res) { },
+  onShareAppMessage: function (res) { 
+    if (res.from == 'button') {
+       var target = res.target.dataset;
+       if (target && target.id) {
+         var title = target.title || '唯美小姐姐';
+         return {
+           title: title,
+           path: `/pages/index/index?start=${target.id}`,
+           imageUrl: target.share
+         }
+       }
+    }
+  },
   addLikeClick: e => {
     const id = e.currentTarget.dataset.id;
     const index = e.currentTarget.dataset.index;
@@ -113,5 +132,8 @@ Page({
     wx.navigateTo({
       url: '../author/author?uid=' + uid
     })
+  },
+  shareClick: (e)=>{
+
   }
 })

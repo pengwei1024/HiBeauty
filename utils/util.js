@@ -1,5 +1,5 @@
-const debug = true;
-const host = debug ? 'http://192.168.0.9/BeautifulGirl/index.php' : 'https://beauty.apkfuns.com';
+const debug = !true;
+const host = debug ? 'http://192.168.0.11/BeautifulGirl/index.php' : 'https://beauty.apkfuns.com';
 const utilMd5 = require('md5.js');
 const tokenCache = {
   time: 0,
